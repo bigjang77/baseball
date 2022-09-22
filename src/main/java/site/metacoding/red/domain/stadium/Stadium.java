@@ -1,4 +1,4 @@
-package site.metacoding.red.domain.stadiums;
+package site.metacoding.red.domain.stadium;
 
 import java.sql.Timestamp;
 
@@ -11,11 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class Stadiums {
+public class Stadium {
 
 	private Integer id;
 	private String stadiumName;
-	private String location;
 	private Timestamp createDate;
 	
 }

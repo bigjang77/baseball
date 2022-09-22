@@ -3,26 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
-	namespace="site.metacoding.red.domain.players.PlayersDao">
+	namespace="site.metacoding.red.domain.player.PlayerDao">
 
 	<insert id="insert">
-		INSERT INTO players(playerName, teamName, position, old
+		INSERT INTO player(playerName, teamName, position, old
 		createDate)
 		VALUES(#{playerName}, #{teamName}, #{position}, #{old}, now())
 	</insert>
 
 	<select id="findAll"
-		resultType="site.metacoding.red.domain.players.Players">
-		SELECT * FROM players ORDER BY id DESC
+		resultType="site.metacoding.red.domain.player.Player">
+		SELECT * FROM player ORDER BY id DESC
 	</select>
 
 	<select id="findById"
-		resultType="site.metacoding.red.domain.players.Players">
-		SELECT * FROM players WHERE id = #{id}
+		resultType="site.metacoding.red.domain.player.Player">
+		SELECT * FROM player WHERE id = #{id}
 	</select>
 
 	<insert id="update">
-		UPDATE players SET playerName = #{playerName},
+		UPDATE player SET playerName = #{playerName},
 		teamName = #{teamName},
 		position = #{position},
 		old = #{old}
@@ -30,7 +30,7 @@
 	</insert>
 
 	<insert id="deleteById">
-		DELETE FROM players WHERE id = #{id}
+		DELETE FROM player WHERE id = #{id}
 	</insert>
 	
 </mapper>

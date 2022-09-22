@@ -15,7 +15,7 @@ function save(){
 			location: $("#location").val()
 	};
 	
-	$.ajax("/teams", {
+	$.ajax("/team", {
 		type: "POST",
 		dataType: "json", // 응답 데이터
 		data: JSON.stringify(data), // http body에 들고갈 요청 데이터
@@ -35,7 +35,7 @@ function save(){
 function remove() {
 	let id = $("#id").val();
 
-	$.ajax("/teams" + id, {
+	$.ajax("/team" + id, {
 		type: "DELETE",
 		dataType: "json" 
 	}).done((res) => {

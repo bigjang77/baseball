@@ -12,17 +12,13 @@
 			<input id="stadiumName" type="text" class="form-control"
 				placeholder="Enter stadiumName" value=""/>
 		</div>
-		<div>
-			<input id="location" type="text" class="form-control"
-				placeholder="Enter location" value=""/>
-		</div>
 		<button id="btnSave" type="submit" class="btn btn-primary">등록</button>
 	</form>
 </div>
 
 
 
-<script src="/js/stadiums.js"></script>
+<script src="/js/stadium.js"></script>
 
 
 <%@ include file="../layout/footer.jsp"%>

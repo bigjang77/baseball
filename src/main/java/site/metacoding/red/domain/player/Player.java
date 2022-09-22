@@ -1,4 +1,4 @@
-package site.metacoding.red.domain.players;
+package site.metacoding.red.domain.player;
 
 import java.sql.Timestamp;
 
@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Players {
+public class Player {
 	private Integer id;
 	private String playerName;
 	private Integer teamId;

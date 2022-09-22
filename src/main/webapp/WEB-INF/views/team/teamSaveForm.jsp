@@ -20,6 +20,6 @@
 	</form>
 </div>
 
-<script src="/js/teams.js"></script>
+<script src="/js/team.js"></script>
 
 <%@ include file="../layout/footer.jsp"%>

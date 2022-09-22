@@ -11,23 +11,21 @@
         <th>번호</th>
         <th>이름</th>
         <th>개장일</th>
-        <th>장소</th>
         <th>삭제</th>
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="stadiums" items="${stadiums}">
+      <c:forEach var="stadium" items="${stadium}">
       <tr>
-      	<td>${stadiums.id}</td>
-        <td>${stadiums.stadiumName}</td>
-        <td>${stadiums.createDate}</td>
-        <td>${stadiums.location}<td>
-        <button id="btnDelete" class="btn btn-danger">삭제</button>
+      	<td>${stadium.id}</td>
+        <td>${stadium.stadiumName}</td>
+        <td>${stadium.createDate}</td>
+        <th><button id="btnDelete" class="btn btn-danger">삭제</button></th>
       </tr>
       </c:forEach>
     </tbody>
   </table>
 
-<script src="/js/stadiums.js"> </script>
+<script src="/js/stadium.js"> </script>
 
 <%@ include file="../layout/footer.jsp"%>

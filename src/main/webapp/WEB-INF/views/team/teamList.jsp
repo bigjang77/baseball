@@ -11,25 +11,23 @@
         <th>번호</th>
         <th>팀 이름</th>
         <th>경기장 이름</th>
-        <th>장소</th>
         <th>창단일</th>
         <th>삭제</th>
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="teams" items="${teams}">
+      <c:forEach var="team" items="${team}">
       <tr class="stardium-${team.id}">
-      	<td>${teams.id}</td>
-        <td>${teams.teamName}</td>
-        <td>${teams.stadiumName}</td>
-        <td>${teams.location}<td>
-        <td>${teams.createDate}</td> 
-        <button id="btnDelete" class="btn btn-danger">삭제</button>
+      	<td>${team.id}</td>
+        <td>${team.teamName}</td>
+        <td>${team.stadiumName}</td>
+        <td>${team.createDate}</td> 
+        <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
       </tr>
       </c:forEach>
     </tbody>
   </table>
   
-  <script src="/js/teams.js"></script>
+  <script src="/js/team.js"></script>
 
 <%@ include file="../layout/footer.jsp"%>

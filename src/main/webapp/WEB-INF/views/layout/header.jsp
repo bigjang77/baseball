@@ -17,20 +17,20 @@
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/stadiums/stadiumsList">Home</a>
+			<a class="navbar-brand" href="/stadium/stadiumList">Home</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar" style="justify-content: space-between">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="/stadiums/stadiumsList">경기장 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/stadiums/stadiumsSaveForm">경기장 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/teams/teamsList">팀 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/teams/teamsSaveForm">팀 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/players/playersList">선수 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/players/playersSaveForm">선수 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="/teams/positionByTeam">팀 별 포지션 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/stadium/stadiumList">경기장 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/stadium/stadiumSaveForm">경기장 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/teamList">팀 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/teamSaveForm">팀 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/playerList">선수 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/playerSaveForm">선수 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/positionByTeam">팀 별 포지션 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/explusion/explusionList">퇴출된 선수 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/explusion/explusionReason">퇴출 사유 등록</a></li>
 

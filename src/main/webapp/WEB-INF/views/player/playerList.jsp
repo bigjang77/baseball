@@ -17,13 +17,13 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="players" items="${players}">
+      <c:forEach var="player" items="${player}">
       <tr>
-      	<td>${players.id}</td>
-        <td>${players.teamName}</td>
-        <td>${players.playerName}</td>
-        <td>${players.location}<td>
-        <td>${players.createDate}</td>
+      	<td>${player.id}</td>
+        <td>${player.teamName}</td>
+        <td>${player.playerName}</td>
+        <td>${player.location}<td>
+        <td>${player.createDate}</td>
         <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
       </tr>
       </c:forEach>
