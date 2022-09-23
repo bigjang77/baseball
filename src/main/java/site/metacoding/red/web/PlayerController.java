@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.red.domain.player.Player;
 import site.metacoding.red.domain.player.PlayerDao;
+import site.metacoding.red.domain.team.TeamDao;
 import site.metacoding.red.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor
@@ -20,6 +21,7 @@ import site.metacoding.red.web.dto.response.CMRespDto;
 public class PlayerController {
 	
 	private final PlayerDao playerDao;
+	private final TeamDao teamDao;
 	
 	
 	@DeleteMapping("/player/{id}")
@@ -39,7 +41,7 @@ public class PlayerController {
 	@GetMapping("/player/{id}/playerList")
 	public String updateFormPlayer(@PathVariable Integer id, Model model) {
 		Player player = playerDao.findById(id);
-		model.addAttribute("player", player);
+		model.addAttribute("players", player);
 		return "/player/playerList";
 	}
 	
@@ -50,14 +52,18 @@ public class PlayerController {
 	}
 	
 	
+	
+	
 	@GetMapping("/player/playerList")
 	public String getplayerList(Model model) {
-		model.addAttribute("player", playerDao.findAll());
+		model.addAttribute("players", playerDao.findAll());
 		return "/player/playerList";
 	}
 	
 	@GetMapping("/player/playerSaveForm")
-	public String playeraveForm() {
+	public String playerSaveForm(Model model) {
+		model.addAttribute("teams", teamDao.findAll());
 		return "/player/playerSaveForm";
 	}
+	
 }

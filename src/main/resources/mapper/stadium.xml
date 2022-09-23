@@ -12,7 +12,7 @@
 
 	<select id="findAll"
 		resultType="site.metacoding.red.domain.stadium.Stadium">
-		SELECT * FROM stadium ORDER BY id DESC
+		SELECT * FROM stadium
 	</select>
 
 	<select id="findById"
@@ -25,8 +25,8 @@
 		WHERE id = #{id}
 	</insert>
 
-	<insert id="deleteById">
+	<delete id="deleteById">
 		DELETE FROM stadium WHERE id = #{id}
-	</insert>
+	</delete>
 	
 </mapper>

@@ -16,4 +16,5 @@ public class Team {
 	private String teamName;
 	private Integer stadiumId;
 	private Timestamp createDate;
+	private String stadiumName;
 }

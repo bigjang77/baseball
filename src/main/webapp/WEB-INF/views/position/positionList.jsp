@@ -3,9 +3,9 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<h1 style="text-align:center">선수 목록 페이지입니다</h1>
+<h1 style="text-align:center">팀 별 포지션 목록 페이지입니다</h1>
 
-  <table class="table table-bordered">
+ <table class="table table-bordered">
     <thead>
       <tr>
         <th>번호</th>
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="player" items="${players}">
+      <c:forEach var="position" items="${positions}">
       <tr>
       	<td>${player.id}</td>
         <td>${player.playerName}</td>
@@ -29,7 +29,7 @@
       </c:forEach>
     </tbody>
   </table>
-  
-  <script src="/js/teams.js"></script>
 
-<%@ include file="../layout/footer.jsp"%>
+
+</body>
+</html>

@@ -15,12 +15,12 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="stadium" items="${stadium}">
+      <c:forEach var="stadium" items="${stadiums}">
       <tr>
       	<td>${stadium.id}</td>
         <td>${stadium.stadiumName}</td>
         <td>${stadium.createDate}</td>
-        <th><button id="btnDelete" class="btn btn-danger">삭제</button></th>
+        <th><button id="btnDelete" class="btn btn-danger" >삭제</button></th>
       </tr>
       </c:forEach>
     </tbody>

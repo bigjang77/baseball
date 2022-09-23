@@ -2,35 +2,37 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="site.metacoding.red.domain.player.PlayerDao">
+<mapper namespace="site.metacoding.red.domain.player.PlayerDao">
 
 	<insert id="insert">
-		INSERT INTO player(playerName, teamName, position, old
+		INSERT INTO player(playerName, teamId, position,
 		createDate)
-		VALUES(#{playerName}, #{teamName}, #{position}, #{old}, now())
+		VALUES(#{playerName}, #{teamId}, #{position}, now())
 	</insert>
 
 	<select id="findAll"
 		resultType="site.metacoding.red.domain.player.Player">
-		SELECT * FROM player ORDER BY id DESC
+		SELECT id, playerName, teamId, position, createDate
+		FROM player
 	</select>
 
 	<select id="findById"
 		resultType="site.metacoding.red.domain.player.Player">
-		SELECT * FROM player WHERE id = #{id}
+		SELECT p.id, p.playerName "playerName", p.position, t.teamName "teamName", p.createDate
+		FROM player p
+		INNER JOIN team t
+		ON p.teamId = t.id
 	</select>
 
 	<insert id="update">
 		UPDATE player SET playerName = #{playerName},
 		teamName = #{teamName},
-		position = #{position},
-		old = #{old}
+		position = #{position}
 		WHERE id = #{id}
 	</insert>
 
-	<insert id="deleteById">
+	<delete id="deleteById">
 		DELETE FROM player WHERE id = #{id}
-	</insert>
-	
+	</delete>
+
 </mapper>

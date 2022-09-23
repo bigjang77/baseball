@@ -16,8 +16,8 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="team" items="${team}">
-      <tr class="stardium-${team.id}">
+      <c:forEach var="team" items="${teams}">
+      <tr>
       	<td>${team.id}</td>
         <td>${team.teamName}</td>
         <td>${team.stadiumName}</td>

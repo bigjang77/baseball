@@ -2,8 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="site.metacoding.red.domain.team.TeamDao">
+<mapper namespace="site.metacoding.red.domain.team.TeamDao">
 
 	<insert id="insert">
 		INSERT INTO team(teamName, stadiumId, createDate)
@@ -12,22 +11,30 @@
 
 	<select id="findAll"
 		resultType="site.metacoding.red.domain.team.Team">
-		SELECT * FROM team ORDER BY id DESC
+		SELECT *
+		FROM team
 	</select>
 
 	<select id="findById"
 		resultType="site.metacoding.red.domain.team.Team">
-		SELECT * FROM team WHERE id = #{id}
+		SELECT t.id, s.stadiumName "stadiumName", t.teamName "teamName", t.createDate
+		FROM team t
+		INNER JOIN stadium s
+		ON t.stadiumId = s.id
+		WHERE t.id = #{id} AND
+		t.name = #{name}
 	</select>
 
 	<insert id="update">
 		UPDATE team SET teamName = #{teamName},
-		stardiumId = #{stardiumId}
+		stardiumId =
+		#{stardiumId}
 		WHERE id = #{id}
 	</insert>
 
-	<insert id="deleteById">
+	<delete id="deleteById">
 		DELETE FROM team WHERE id = #{id}
-	</insert>
+	</delete>
 	
+
 </mapper>

@@ -18,4 +18,5 @@ public class Player {
 	private String position;
 	private Integer old;
 	private Timestamp createDate;
+	private String teamName;
 }

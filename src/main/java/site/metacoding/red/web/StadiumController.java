@@ -52,7 +52,7 @@ public class StadiumController {
 	
 	@GetMapping("/stadium/stadiumList")
 	public String getstadiumList(Model model) {
-		model.addAttribute("stadium", stadiumDao.findAll());
+		model.addAttribute("stadiums", stadiumDao.findAll());
 		return "/stadium/stadiumList";
 	}
 	
