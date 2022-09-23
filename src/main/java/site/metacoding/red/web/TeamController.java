@@ -26,7 +26,7 @@ public class TeamController {
 	private final StadiumDao stadiumsDao;
 	
 	
-	@DeleteMapping("/team/{id}")
+	@DeleteMapping("/team/")
 	public @ResponseBody CMRespDto<?> deleteTeam(@PathVariable Integer id){
 		teamDao.deleteById(id);
 		return new CMRespDto<>(1, "팀삭제성공",null);
@@ -54,11 +54,10 @@ public class TeamController {
 		
 	
 	@GetMapping("/team/teamList")
-	public String getTeamList(Model model) {
-		model.addAttribute("teams", teamDao.findAll());
-		return "/team/teamList";
+	public String teamList(Model model) {
+		model.addAttribute("teams", teamDao.findJoin());
+		return "team/teamList";
 	}
-	
 	
 
 	@GetMapping("/team/teamSaveForm")

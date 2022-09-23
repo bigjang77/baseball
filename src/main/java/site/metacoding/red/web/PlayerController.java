@@ -27,7 +27,7 @@ public class PlayerController {
 	@DeleteMapping("/player/{id}")
 	public @ResponseBody CMRespDto<?> deletePlayer(@PathVariable Integer id){
 		playerDao.deleteById(id);
-		return new CMRespDto<>(1, "팀삭제성공",null);
+		return new CMRespDto<>(1, "선수삭제성공",null);
 	}
 	
 	
@@ -35,7 +35,7 @@ public class PlayerController {
 	@PutMapping("/player/{id}/playerList")
 	public @ResponseBody CMRespDto<?> updatePlayer(@PathVariable Integer id, Player player){
 		playerDao.update(player);
-		return new CMRespDto<>(1, "팀수정성공",null);
+		return new CMRespDto<>(1, "선수정성공",null);
 	}
 	
 	@GetMapping("/player/{id}/playerList")
@@ -48,15 +48,15 @@ public class PlayerController {
 	@PostMapping("/player")
 	public @ResponseBody CMRespDto<?> savePlayer(@RequestBody Player player){
 		playerDao.insert(player);
-		return new CMRespDto<>(1, "팀생성성공", null);
+		return new CMRespDto<>(1, "선수생성성공", null);
 	}
 	
 	
 	
 	
 	@GetMapping("/player/playerList")
-	public String getplayerList(Model model) {
-		model.addAttribute("players", playerDao.findAll());
+	public String playerList(Model model) {
+		model.addAttribute("players", playerDao.findJoin());
 		return "/player/playerList";
 	}
 	

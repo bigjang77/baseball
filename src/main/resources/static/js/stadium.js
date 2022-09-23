@@ -4,14 +4,14 @@ $("#btnSave").click(() => {
 });
 
 $("#btnDelete").click(()=>{
+	console.log("클릭");
 	remove();
 });
 
 
 function save(){
 	let data = {
-			stadiumName: $("#stadiumName").val(),
-			location: $("#location").val()
+			stadiumName: $("#stadiumName").val()
 	};
 	
 	$.ajax("/stadium", {

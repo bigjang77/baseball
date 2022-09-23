@@ -22,7 +22,7 @@ public class StadiumController {
 	private final StadiumDao stadiumDao;
 	
 	
-	@DeleteMapping("/stadium/{id}")
+	@DeleteMapping("/stadium/")
 	public @ResponseBody CMRespDto<?> deletestadium(@PathVariable Integer id){
 		stadiumDao.deleteById(id);
 		return new CMRespDto<>(1, "경기장삭제성공",null);
@@ -51,13 +51,13 @@ public class StadiumController {
 	
 	
 	@GetMapping("/stadium/stadiumList")
-	public String getstadiumList(Model model) {
+	public String stadiumList(Model model) {
 		model.addAttribute("stadiums", stadiumDao.findAll());
 		return "/stadium/stadiumList";
 	}
 	
 	@GetMapping("/stadium/stadiumSaveForm")
-	public String stadiumaveForm() {
+	public String stadiumSaveForm() {
 		return "/stadium/stadiumSaveForm";
 	}
 }

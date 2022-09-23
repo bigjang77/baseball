@@ -11,8 +11,11 @@
 	</insert>
 
 	<select id="findAll"
-		resultType="site.metacoding.red.domain.stadium.Stadium">
-		SELECT * FROM stadium
+		resultType="site.metacoding.red.web.dto.stadium.StadiumDto">
+		SELECT id, stadiumName, createDate, 
+		(SELECT COUNT(*) + 1 FROM stadium WHERE stadiumName <![CDATA[<]]> s.stadiumName) AS no
+		FROM stadium s
+		order by no;
 	</select>
 
 	<select id="findById"

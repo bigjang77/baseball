@@ -5,19 +5,25 @@
 <mapper namespace="site.metacoding.red.domain.player.PlayerDao">
 
 	<insert id="insert">
-		INSERT INTO player(playerName, teamId, position,
-		createDate)
+		INSERT INTO player(playerName, teamId, position, createDate)
 		VALUES(#{playerName}, #{teamId}, #{position}, now())
 	</insert>
 
-	<select id="findAll"
-		resultType="site.metacoding.red.domain.player.Player">
-		SELECT id, playerName, teamId, position, createDate
-		FROM player
+	<select id="findJoin" resultType="site.metacoding.red.web.dto.player.PlayerDto">
+		SELECT t.id, t.teamName "teamName", p.playerName "playerName", p.createDate
+		, ( SELECT COUNT(*) + 1 FROM player WHERE playerName <![CDATA[<]]> p.playerName ) AS no
+		FROM player p INNER JOIN team t
+		ON p.teamId = t.id
+		order by no
+	
 	</select>
 
-	<select id="findById"
-		resultType="site.metacoding.red.domain.player.Player">
+
+	<select id="findAll" resultType="site.metacoding.red.domain.player.Player">
+		SELECT * FROM player ORDER BY id DESC
+	</select>
+
+	<select id="findById" resultType="site.metacoding.red.domain.player.Player">
 		SELECT p.id, p.playerName "playerName", p.position, t.teamName "teamName", p.createDate
 		FROM player p
 		INNER JOIN team t

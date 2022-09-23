@@ -11,8 +11,7 @@ $("#btnDelete").click(()=>{
 function save(){
 	let data = {
 			teamName:$("#teamName").val(),
-			stadiumName: $("#stadiumName").val(),
-			location: $("#location").val()
+			stadiumId: $("#stadiumId").val()
 	};
 	
 	$.ajax("/team", {
