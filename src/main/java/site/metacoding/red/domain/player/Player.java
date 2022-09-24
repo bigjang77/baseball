@@ -19,4 +19,9 @@ public class Player {
 	private Integer old;
 	private Timestamp createDate;
 	private String teamName;
+	
+	public Player(String playerName, Integer teamId) {
+		this.playerName = playerName;
+		this.teamId = teamId;
+	}
 }

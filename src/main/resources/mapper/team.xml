@@ -26,12 +26,7 @@
 
 	<select id="findById"
 		resultType="site.metacoding.red.domain.team.Team">
-		SELECT t.id, s.stadiumName "stadiumName", t.teamName "teamName", t.createDate
-		FROM team t
-		INNER JOIN stadium s
-		ON t.stadiumId = s.id
-		WHERE t.id = #{id} AND
-		t.name = #{name}
+		SELECT * FROM team WHERE id = #{id}
 	</select>
 
 	<insert id="update">

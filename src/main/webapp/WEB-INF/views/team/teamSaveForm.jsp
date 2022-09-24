@@ -8,15 +8,15 @@
 	<form>
 <select name="stadiumId">
 	<option>경기장을 선택하세요</option>
-	<c:forEach var="stadium" items="${stadiums}">
+	<c:forEach var="stadium" items="${stadiumList}">
 		<option value="${stadium.id}">${stadium.stadiumName}</option>
 	</c:forEach>
 </select>
 		<div>
 			<input id="teamName" type="text" class="form-control"
-				placeholder="Enter TeamName" value="" />
+				placeholder="Enter TeamName">
 		</div>
-		<button id="btnSave" type="submit" class="btn btn-primary">등록</button>
+		<button id="btnSaveTeaem" type="button" class="btn btn-primary">등록</button>
 	</form>
 </div>
 

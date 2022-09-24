@@ -8,7 +8,7 @@
 	<form>
 		<select name="teamId">
 			<option>팀을 선택하세요</option>
-			<c:forEach var="team" items="${teams}">
+			<c:forEach var="team" items="${teamList}">
 				<option value="${team.id}">${team.teamName}</option>
 			</c:forEach>
 		</select>

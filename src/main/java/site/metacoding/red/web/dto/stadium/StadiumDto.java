@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class StadiumDto {
-	private	int id;
+	private	Integer id;
 	private	String stadiumName;
 	private	Timestamp createDate;
 	private int no;

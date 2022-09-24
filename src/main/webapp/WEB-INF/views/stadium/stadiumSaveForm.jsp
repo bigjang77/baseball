@@ -9,10 +9,9 @@
 <div class="container">
 	<form>
 		<div>
-			<input id="stadiumName" type="text" class="form-control"
-				placeholder="Enter stadiumName" value=""/>
+			<input id="stadiumName" type="text" class="form-control" placeholder="Enter stadiumName" >
 		</div>
-		<button id="btnSave" type="submit" class="btn btn-primary">등록</button>
+		<button id="btnSaveStadium" type="submit" class="btn btn-primary">등록</button>
 	</form>
 </div>
 

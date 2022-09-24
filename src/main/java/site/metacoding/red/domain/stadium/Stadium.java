@@ -17,4 +17,7 @@ public class Stadium {
 	private String stadiumName;
 	private Timestamp createDate;
 	
+	public Stadium(String stadiumName) {
+		this.stadiumName = stadiumName;
+	}
 }

@@ -1,9 +1,9 @@
 
-$("#btnSave").click(() => {
+$("#btnSaveStadium").click(() => {
 	save();
 });
 
-$("#btnDelete").click(()=>{
+$("#btnDeleteStadium").click(()=>{
 	console.log("클릭");
 	remove();
 });

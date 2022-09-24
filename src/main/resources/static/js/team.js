@@ -1,9 +1,9 @@
 
-$("#btnSave").click(() => {
+$("#btnSaveTeam").click(() => {
 	save();
 });
 
-$("#btnDelete").click(()=>{
+$("#btnDeleteTeam").click(()=>{
 	remove();
 });
 

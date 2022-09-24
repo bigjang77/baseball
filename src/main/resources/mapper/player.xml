@@ -10,7 +10,7 @@
 	</insert>
 
 	<select id="findJoin" resultType="site.metacoding.red.web.dto.player.PlayerDto">
-		SELECT t.id, t.teamName "teamName", p.playerName "playerName", p.createDate
+		SELECT t.id, t.teamName "teamName", p.playerName "playerName", p.position ,p.createDate
 		, ( SELECT COUNT(*) + 1 FROM player WHERE playerName <![CDATA[<]]> p.playerName ) AS no
 		FROM player p INNER JOIN team t
 		ON p.teamId = t.id

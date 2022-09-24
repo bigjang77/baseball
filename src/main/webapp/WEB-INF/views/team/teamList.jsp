@@ -16,13 +16,13 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="team" items="${teams}">
+      <c:forEach var="team" items="${teamList}">
       <tr>
       	<td>${team.no}</td>
         <td>${team.teamName}</td>
         <td>${team.stadiumName}</td>
         <td>${team.createDate}</td> 
-        <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
+        <td><button id="btnDeleteTeam" class="btn btn-danger">삭제</button></td>
       </tr>
       </c:forEach>
     </tbody>

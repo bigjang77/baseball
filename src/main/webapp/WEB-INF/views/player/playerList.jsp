@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="player" items="${players}">
+      <c:forEach var="player" items="${playerList}">
       <tr>
       	<td>${player.no}</td>
         <td>${player.playerName}</td>

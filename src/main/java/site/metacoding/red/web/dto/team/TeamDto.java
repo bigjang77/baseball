@@ -12,8 +12,9 @@ import lombok.Setter;
 @Setter
 @Getter
 public class TeamDto {
-	private	int id;
+	private	Integer id;
 	private	String stadiumName;
+	private String stadiumId;
 	private String teamName;
 	private	Timestamp createDate;
 	private int no;

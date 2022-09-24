@@ -17,4 +17,9 @@ public class Team {
 	private Integer stadiumId;
 	private Timestamp createDate;
 	private String stadiumName;
+	
+	public Team(String teamName, Integer stadiumId) {
+		this.teamName = teamName;
+		this.stadiumId = stadiumId;
+	}
 }
