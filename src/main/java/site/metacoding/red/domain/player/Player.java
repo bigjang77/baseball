@@ -16,12 +16,11 @@ public class Player {
 	private String playerName;
 	private Integer teamId;
 	private String position;
-	private Integer old;
 	private Timestamp createDate;
-	private String teamName;
 	
-	public Player(String playerName, Integer teamId) {
+	public Player(String playerName, Integer teamId, String position) {
 		this.playerName = playerName;
 		this.teamId = teamId;
+		this.position = position;
 	}
 }

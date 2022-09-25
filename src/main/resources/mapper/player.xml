@@ -5,30 +5,48 @@
 <mapper namespace="site.metacoding.red.domain.player.PlayerDao">
 
 	<insert id="insert">
-		INSERT INTO player(playerName, teamId, position, createDate)
+		INSERT INTO player(playerName, teamId, position,
+		createDate)
 		VALUES(#{playerName}, #{teamId}, #{position}, now())
 	</insert>
 
-	<select id="findJoin" resultType="site.metacoding.red.web.dto.player.PlayerDto">
-		SELECT t.id, t.teamName "teamName", p.playerName "playerName", p.position ,p.createDate
-		, ( SELECT COUNT(*) + 1 FROM player WHERE playerName <![CDATA[<]]> p.playerName ) AS no
-		FROM player p INNER JOIN team t
+	<select id="findJoin"
+		resultType="site.metacoding.red.web.dto.player.PlayerDto">
+		SELECT p.id id, p.playerName playerName, t.teamName
+		teamName, p.position position, p.createDate createDate
+		FROM player p
+		LEFT OUTER JOIN team t
 		ON p.teamId = t.id
-		order by no
-	
 	</select>
 
 
-	<select id="findAll" resultType="site.metacoding.red.domain.player.Player">
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.player.Player">
 		SELECT * FROM player ORDER BY id DESC
 	</select>
 
-	<select id="findById" resultType="site.metacoding.red.domain.player.Player">
-		SELECT p.id, p.playerName "playerName", p.position, t.teamName "teamName", p.createDate
+	<select id="findById"
+		resultType="site.metacoding.red.domain.player.Player">
+		SELECT p.id, p.playerName "playerName", p.position,
+		t.teamName "teamName", p.createDate
 		FROM player p
 		INNER JOIN team t
-		ON p.teamId = t.id
+		ON
+		p.teamId = t.id
 	</select>
+
+	<select id="findByPosition"
+		resultType="site.metacoding.red.web.dto.position.PositionDto">
+		SELECT
+		position,
+		MAX(if(teamId = 1, NAME, "")) lotte,
+		MAX(if(teamId = 2, NAME, "")) kiwoom,
+		MAX(if(teamId = 3, NAME, "")) kia
+		FROM player
+		GROUP BY position
+	</select>
+
+
 
 	<insert id="update">
 		UPDATE player SET playerName = #{playerName},

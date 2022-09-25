@@ -4,6 +4,7 @@
 
 <h1 style="text-align: center">선수 등록 페이지입니다</h1>
 
+<button id="btn" type="button">테스트</button>
 <div class="container">
 	<form>
 		<select name="teamId">
@@ -20,6 +21,47 @@
 	</form>
 </div>
 
-<script src="/js/player.js"></script>
+<script>
+$("#btn").click(() => {
+	
+	let data2 = {
+			playerName:$("#playerName").val(),
+			teamName: $("#teamName").val(),
+			position: $("#position").val()
+	};
+	console.log(data2);
+});
+
+
+
+$("#btnSave").click(() => {
+	save();
+});
+
+function save(){
+	let data = {
+			playerName:$("#playerName").val(),
+			teamName: $("#teamName").val(),
+			position: $("#position").val()
+	};
+	
+	$.ajax("/player/save", {
+		type: "POST",
+		dataType: "json", // 응답 데이터
+		data: JSON.stringify(data), // http body에 들고갈 요청 데이터
+		headers: { // http header에 들고갈 요청 데이터
+			"Content-Type": "application/json"
+		}
+	}).done((res) => {
+		if (res.code == 1) {
+			alert("생성에성공했습니다");
+		}else {
+			alert("다시하세요");
+			history.back();
+		}
+	});
+}
+
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

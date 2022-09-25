@@ -10,20 +10,26 @@ import site.metacoding.red.domain.stadium.StadiumDao;
 import site.metacoding.red.domain.team.Team;
 import site.metacoding.red.domain.team.TeamDao;
 import site.metacoding.red.web.dto.stadium.StadiumSaveDto;
+import site.metacoding.red.web.dto.team.TeamDto;
 import site.metacoding.red.web.dto.team.TeamSaveDto;
 
 @RequiredArgsConstructor
 @Service
 public class TeamService {
 	private final TeamDao teamDao;
+	private final StadiumDao stadiumDao;
 	
-	public List<Team> 팀목록보기(){
+	public List<TeamDto> 팀목록보기(){
 		return teamDao.findJoin();
 	}
 	
 	public void 팀추가(TeamSaveDto teamSaveDto) {
-		Team team = teamSaveDto.toEntity();
+		Team team = teamSaveDto.toEntity(teamSaveDto.getStadiumId(), teamSaveDto.getTeamName());
 		teamDao.insert(team);
+	}
+	
+	public List<Stadium> 팀등록후구장목록보기() {
+		return stadiumDao.findAll();
 	}
 	
 	public void 팀삭제(Integer id) {

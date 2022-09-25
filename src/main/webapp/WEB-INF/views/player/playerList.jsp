@@ -19,7 +19,7 @@
     <tbody>
       <c:forEach var="player" items="${playerList}">
       <tr>
-      	<td>${player.no}</td>
+      	<td>${player.id}</td>
         <td>${player.playerName}</td>
         <td>${player.teamName}</td>
         <td>${player.position}</td>

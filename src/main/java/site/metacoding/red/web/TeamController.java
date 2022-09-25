@@ -19,6 +19,7 @@ import site.metacoding.red.domain.team.Team;
 import site.metacoding.red.service.StadiumService;
 import site.metacoding.red.service.TeamService;
 import site.metacoding.red.web.dto.response.CMRespDto;
+import site.metacoding.red.web.dto.team.TeamDto;
 import site.metacoding.red.web.dto.team.TeamSaveDto;
 
 
@@ -30,24 +31,14 @@ public class TeamController {
 	private final StadiumService stadiumService;
 	
 	
-	@DeleteMapping("/team/")
+	@DeleteMapping("/team/{id}")
 	public @ResponseBody CMRespDto<?> deleteTeam(@PathVariable Integer id){
 		teamService.팀삭제(id);
 		return new CMRespDto<>(1, "팀삭제성공",null);
 	}
+
 	
-	
-	/*
-	 * @PutMapping("/team/{id}/teamList") public @ResponseBody CMRespDto<?>
-	 * updateTeam(@PathVariable Integer id, Team team){ teamDao.update(team); return
-	 * new CMRespDto<>(1, "팀수정성공",null); }
-	 * 
-	 * @GetMapping("/team/{id}/teamList") public String updateFormTeam(@PathVariable
-	 * Integer id, Model model) { Team team = teamDao.findById(id);
-	 * model.addAttribute("team", team); return "/team/teamList"; }
-	 */
-	
-	@PostMapping("/team")
+	@PostMapping("/team/save")
 	public @ResponseBody CMRespDto<?> saveTeam(@RequestBody TeamSaveDto teamSaveDto){
 		teamService.팀추가(teamSaveDto);
 		return new CMRespDto<>(1, "팀생성성공", null);
@@ -56,7 +47,7 @@ public class TeamController {
 	
 	@GetMapping("/team/teamList")
 	public String teamList(Model model) {
-		List<Team> teamList = teamService.팀목록보기();
+		List<TeamDto> teamList = teamService.팀목록보기();
 		model.addAttribute("teamList", teamList);
 		return "/team/teamList";
 	}
@@ -64,7 +55,7 @@ public class TeamController {
 
 	@GetMapping("/team/teamSaveForm")
 	public String teamSaveForm(Model model) {
-		List<Stadium> stadiumList = stadiumService.야구장목록보기();
+		List<Stadium> stadiumList = teamService.팀등록후구장목록보기();
 		model.addAttribute("stadiumList", stadiumList);
 		return "/team/teamSaveForm";
 	}

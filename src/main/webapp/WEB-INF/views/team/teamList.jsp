@@ -18,7 +18,7 @@
     <tbody>
       <c:forEach var="team" items="${teamList}">
       <tr>
-      	<td>${team.no}</td>
+      	<td>${team.id}</td>
         <td>${team.teamName}</td>
         <td>${team.stadiumName}</td>
         <td>${team.createDate}</td> 

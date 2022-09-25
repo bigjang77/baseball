@@ -8,23 +8,19 @@
  <table class="table table-bordered">
     <thead>
       <tr>
-        <th>번호</th>
-        <th>선수 이름</th>
-        <th>팀 이름</th>
         <th>포지션</th>
-        <th>등록일</th>
-        <th>삭제</th>
+        <th>롯데</th>
+        <th>키움</th>
+        <th>기아</th>
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="position" items="${positions}">
+      <c:forEach var="position" items="${positionList}">
       <tr>
-      	<td>${player.id}</td>
-        <td>${player.playerName}</td>
-        <td>${player.teamName}</td>
-        <td>${player.position}</td>
-        <td>${player.createDate}</td>
-        <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
+      	<td>${position.position}</td>
+        <td>${position.lotte}</td>
+        <td>${position.kiwoom}</td>
+        <td>${position.kia}</td>
       </tr>
       </c:forEach>
     </tbody>

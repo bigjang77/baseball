@@ -4,6 +4,7 @@
 
 <h1 style="text-align: center">팀 등록 페이지입니다</h1>
 
+<button id="btn" type="button">테스트</button>
 <div class="container">
 	<form>
 <select name="stadiumId">
@@ -16,7 +17,7 @@
 			<input id="teamName" type="text" class="form-control"
 				placeholder="Enter TeamName">
 		</div>
-		<button id="btnSaveTeaem" type="button" class="btn btn-primary">등록</button>
+		<button id="btnSave" type="button" class="btn btn-primary">등록</button>
 	</form>
 </div>
 

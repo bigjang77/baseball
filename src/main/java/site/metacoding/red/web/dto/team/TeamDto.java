@@ -17,5 +17,4 @@ public class TeamDto {
 	private String stadiumId;
 	private String teamName;
 	private	Timestamp createDate;
-	private int no;
 }

@@ -17,5 +17,4 @@ public class PlayerDto {
 	private String teamName;
 	private String position;
 	private Timestamp createDate;
-	private int no;
 }

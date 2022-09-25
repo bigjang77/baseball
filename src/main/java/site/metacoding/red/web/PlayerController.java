@@ -20,8 +20,12 @@ import site.metacoding.red.domain.team.Team;
 import site.metacoding.red.domain.team.TeamDao;
 import site.metacoding.red.service.PlayerService;
 import site.metacoding.red.service.TeamService;
+import site.metacoding.red.web.dto.expulsion.ExpulsionDto;
+import site.metacoding.red.web.dto.player.PlayerDto;
 import site.metacoding.red.web.dto.player.PlayerSaveDto;
+import site.metacoding.red.web.dto.position.PositionDto;
 import site.metacoding.red.web.dto.response.CMRespDto;
+import site.metacoding.red.web.dto.team.TeamDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -30,26 +34,24 @@ public class PlayerController {
 	private final PlayerService playerService;
 	private final TeamService teamService;
 	
+	@GetMapping("/position")
+	public String getPositionList(Model model) {
+		List<PositionDto> positionList = playerService.포지션별선수보기();
+		model.addAttribute("positionList", positionList);
+		return "position/positionList";
+	}
+	
+	
 	
 	@DeleteMapping("/player/{id}")
 	public @ResponseBody CMRespDto<?> deletePlayer(@PathVariable Integer id){
-		playerService.선수삭제(id);
+		playerService.선수제명(id);
 		return new CMRespDto<>(1, "선수삭제성공",null);
 	}
 	
 
-	/*
-	 * @PutMapping("/player/{id}/playerList") public @ResponseBody CMRespDto<?>
-	 * updatePlayer(@PathVariable Integer id, Player player){
-	 * playerDao.update(player); return new CMRespDto<>(1, "선수정성공",null); }
-	 * 
-	 * @GetMapping("/player/{id}/playerList") public String
-	 * updateFormPlayer(@PathVariable Integer id, Model model) { Player player =
-	 * playerDao.findById(id); model.addAttribute("players", player); return
-	 * "/player/playerList"; }
-	 */
 	
-	@PostMapping("/player")
+	@PostMapping("/player/save")
 	public @ResponseBody CMRespDto<?> savePlayer(@RequestBody PlayerSaveDto playerSaveDto){
 		playerService.선수추가(playerSaveDto);
 		return new CMRespDto<>(1, "선수생성성공", null);
@@ -58,16 +60,19 @@ public class PlayerController {
 
 	@GetMapping("/player/playerList")
 	public String playerList(Model model) {
-		List<Player> playerList = playerService.선수목록보기();
+		List<PlayerDto> playerList = playerService.선수목록보기();
 		model.addAttribute("playerList", playerList);
 		return "/player/playerList";
 	}
 	
 	@GetMapping("/player/playerSaveForm")
 	public String playerSaveForm(Model model) {
-		List<Team> teamList = teamService.팀목록보기();
+		List<Team> teamList = playerService.선수등록후팀목록보기();
 		model.addAttribute("teamList", teamList);
 		return "/player/playerSaveForm";
 	}
+	
+
+	
 	
 }

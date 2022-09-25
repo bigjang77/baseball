@@ -10,11 +10,9 @@
 	</insert>
 
 	<select id="findJoin" resultType="site.metacoding.red.web.dto.team.TeamDto">
-		SELECT t.id, s.stadiumName "stadiumName", t.teamName "teamName", t.createDate
-		, ( SELECT COUNT(*) + 1 FROM team WHERE teamName <![CDATA[<]]> t.teamName ) AS no
+		SELECT t.id id, s.stadiumName stadiumName, t.teamName teamName, t.createDate createDate
 		FROM team t INNER JOIN stadium s
 		ON t.stadiumId = s.id
-		order by no
 	</select>
 
 
@@ -30,10 +28,7 @@
 	</select>
 
 	<insert id="update">
-		UPDATE team SET teamName = #{teamName},
-		stardiumId =
-		#{stardiumId}
-		WHERE id = #{id}
+
 	</insert>
 
 	<delete id="deleteById">
